@@ -1,0 +1,183 @@
+<html lang="en">
+
+<head>
+
+  <!--ga-->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81668169-20"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-81668169-20');
+  </script>
+
+  <title>Been Love Memory - Đếm ngày yêu: Ứng dụng Đếm ngày yêu số 1 Việt Nam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="keywords" content="been love memory, đếm ngày yêu, beenlovememory, dem ngay yeu, ứng dụng đếm ngày yêu, been love memory trên pc, been love memory trên máy tính, been love memory trên window">
+  <meta name="description" content="Been Love Memory - Ứng dụng Đếm ngày yêu số 1 Việt Nam hiện nay. Hãy trải nghiệm ngay!">
+
+  <meta property="og:title" content="Been Love Memory - Đếm ngày yêu">
+  <meta property="og:description" content="Ứng dụng Đếm ngày yêu số 1 Việt Nam hiện nay. Hãy trải nghiệm ngay!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://beenlovememory.app/">
+  <meta property="og:site_name" content="Been Love Memory">
+  <meta property="og:image" content="https://beenlovememory.app/img/cover.png">
+
+  <link rel="icon" href="img/logo.png">
+
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/loader.js" type="text/javascript"></script>
+  <script src="js/demo.js" type="text/javascript"></script>
+  <script src="js/utils.js" type="text/javascript"></script>
+  <meta meta charset=utf-8>
+
+  <!--db-->
+  <script src="//cdn.jsdelivr.net/npm/pouchdb@7.0.0/dist/pouchdb.min.js"></script>
+  <script src="js/db.js"></script>
+
+  <!--angular-->
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+  <!--datepicker-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/bootstrap-material-design.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/ripples.min.css" />
+
+  <link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>
+  <script type="text/javascript" src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap-material-datetimepicker.js"></script>
+
+  <!--app main js-->
+  <script src="js/app.js" type="text/javascript"></script>
+
+  <!--color picker-->
+  <link rel="stylesheet" href="css/color-picker.css" />
+  <script src="js/color-picker.js" type="text/javascript"></script>
+
+
+</head>
+
+<body ng-app="app" ng-cloak>
+
+  <!--
+  Your HTML content here
+-->
+
+  <div layout="column">
+    <div flex="20">
+      <div layout="row" layout-margin="">
+        <img ng-controller="AppCtrl" ng-click="toggleSidenav();" src="img/menu.png" class="menu">
+        <p layout-padding="" class="title">Been Love Memory</p>
+      </div>
+    </div>
+    <!-- ng-init="showBannerDialog($event)" -->
+    <div ng-controller="AppCtrl" layout="row" flex="30" layout-align="center center" ng-click="showAdvanced($event)">
+      <div class="loader">
+        
+      </div>
+      <div layout="column" layout-align="center center" style="position: absolute">
+        <p class="top" id="top">Đang yêu</p>
+        <p class="counter" id="counter">0</p>
+        <p class="bottom" id="bottom">Ngày</p>
+      </div>
+    </div>
+    <div layout="row" flex="40" layout-align="center center" style="margin-top: 40px">
+
+      <div ng-controller="AppCtrl" layout="column" layout-align="center center">
+        <img ng-click="showAvatar($event,'1')" id="avatar_1" class="avatar" src="img/no_avatar_male.jpg">
+        <p ng-click="showNickname($event,'1')" id="nickname_1" class="nickname" layout-padding="">Tên hiển thị 1</p>
+      </div>
+      <img class="heart" src="img/big_heart.png">
+      <div ng-controller="AppCtrl" layout="column" layout-align="center center">
+        <img ng-click="showAvatar($event,'2')" id="avatar_2" class="avatar" src="img/no_avatar_female.jpg">
+        <p ng-click="showNickname($event,'2')" id="nickname_2" class="nickname" layout-padding="">Tên hiển thị 2</p>
+      </div>
+
+
+    </div>
+
+    <div ng-include="'view/nav_menu.html'">
+
+    </div>
+
+  </div>
+
+  <!-- Begin BidVertiser code -->
+  <!-- <SCRIPT data-cfasync="false" SRC="//bdv.bidvertiser.com/BidVertiser.dbm?pid=819068&bid=2088748&fid=2088748" TYPE="text/javascript"></SCRIPT> -->
+  <!-- End BidVertiser code -->
+
+  <script>
+    // website loaded
+    $(document).ready(function() {
+      // do stuff
+      init()
+      //testPut()
+      ///testGet()
+      //testUpdate()
+
+      //console.log(document.cookie);
+
+    });
+
+    var username = '';
+    var show_count = 0;
+
+    var allcookies = document.cookie;
+    console.log(allcookies);
+    // Get all the cookies pairs in an array
+    cookiearray = allcookies.split(';');
+    // Now take key value pair out of this array
+    for (var i = 0; i < cookiearray.length; i++) {
+      name = cookiearray[i].split('=')[0];
+      value = cookiearray[i].split('=')[1];
+      //console.log("Key is : " + name + " and Value is : " + value);
+      if (name.replace(' ', '') == 'username' && value == 'admin') {
+        username = value;
+        break;
+      }
+    }
+
+    
+  
+   
+  </script>
+
+  <!-- Your application bootstrap  -->
+
+</body>
+
+<!-- Bidvertiser2088748 -->
+
+</html>
+
+<!--
+Copyright 2016-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://material.angularjs.org/latest/license.
+-->
